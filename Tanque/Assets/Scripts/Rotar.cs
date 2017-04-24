@@ -28,7 +28,5 @@ public class Rotar : MonoBehaviour {
             timer = 0;
             timer2 = 0;
         }
-        print(timer);
-        print(timer2);
     }
 }

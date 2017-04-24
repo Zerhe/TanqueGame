@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tanque : MonoBehaviour {
     private float velRot;
     private float velTanq;
+    private float velTanqInicial;
     public Vector3 posInicial;
     public Quaternion rotInicial;
     public KeyCode movArriba;
@@ -14,7 +15,8 @@ public class Tanque : MonoBehaviour {
 
 	void Start () {
         velRot =80;
-        velTanq = 10;
+        velTanqInicial = 10;
+        velTanq = velTanqInicial;
         posInicial = transform.position;
         rotInicial = transform.rotation;
 	}
@@ -36,5 +38,17 @@ public class Tanque : MonoBehaviour {
         {
             transform.Rotate(Vector3.down * Time.deltaTime * velRot);
         }
+    }
+    public float getVelTanq()
+    {
+        return velTanq;
+    }
+    public void setVelTanq(float _veltanq)
+    {
+        velTanq = _veltanq;
+    }
+    public float getVelTanqInicial()
+    {
+        return velTanqInicial;
     }
 }
