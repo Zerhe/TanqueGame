@@ -5,6 +5,8 @@ using UnityEngine;
 public class Torreta : MonoBehaviour {
     private float velRot;
     public GameObject bala;
+    private GameObject[] balasInstanciadas = new GameObject[20];
+    private Bala infoBala;
     public Transform punta;
     public KeyCode apuntArriva;
     public KeyCode apuntAbajo;
@@ -14,6 +16,12 @@ public class Torreta : MonoBehaviour {
 
 	void Start () {
         velRot = 80;
+        for(int i = 0; i < balasInstanciadas.Length; i++)
+        {
+            balasInstanciadas[i] = Instantiate(bala, punta.position, punta.rotation);
+            infoBala = balasInstanciadas[i].GetComponent<Bala>();
+            infoBala.Desactivarse();
+        }
 	}
 	
 	void Update () {
@@ -36,7 +44,23 @@ public class Torreta : MonoBehaviour {
         }
         if (Input.GetKeyDown(disparar))
         {
-            Instantiate(bala, punta.position, punta.rotation);
+            int i = 0;
+            while (i != balasInstanciadas.Length)
+            {
+                if (!balasInstanciadas[i].activeInHierarchy)
+                {
+                    infoBala = balasInstanciadas[i].GetComponent<Bala>();
+                    infoBala.Activarse(punta.position, punta.rotation);
+                    //balasInstanciadas[i].transform.position = punta.position;
+                    //balasInstanciadas[i].transform.rotation = punta.rotation;
+                    //balasInstanciadas[i].SetActive(true);
+                    i = balasInstanciadas.Length;
+                }
+                else
+                {
+                    i++;
+                }
+            }
         }
     }
 }
