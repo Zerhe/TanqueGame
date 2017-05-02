@@ -10,7 +10,7 @@ public class Mundo : MonoBehaviour {
     public Tanque scriptTanque01;
     public Tanque scriptTanque02;
 
-    void Start () {
+    void Awake () {
         scriptTanque01 = tanque01.GetComponent<Tanque>();
         scriptTanque02 = tanque02.GetComponent<Tanque>();
 	}

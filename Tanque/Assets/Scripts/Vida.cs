@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Vida : MonoBehaviour {
     public int cantVida;
-
-	void Start () {
-		
-	}
-	
+    	
 	void Update ()
     {
         print(cantVida);

@@ -11,11 +11,8 @@ public class RecibirDaño : MonoBehaviour {
     public int danio02;
     public int danio03;
 
-	void Start () {
+	void Awake () {
         vida = GetComponent<Vida>();
-	}
-	void Update () {
-		
 	}
 	void OnCollisionEnter(Collision coll)
     {
