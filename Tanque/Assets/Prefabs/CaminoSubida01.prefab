@@ -9,45 +9,45 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1327038396025286}
+  m_RootGameObject: {fileID: 1037419867494010}
   m_IsPrefabParent: 1
---- !u!1 &1327038396025286
+--- !u!1 &1037419867494010
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4170509105879116}
-  - component: {fileID: 33944318626340970}
-  - component: {fileID: 65341366298033082}
-  - component: {fileID: 23187718931923978}
+  - component: {fileID: 4282064149812772}
+  - component: {fileID: 33729112046790950}
+  - component: {fileID: 65324918276100658}
+  - component: {fileID: 23933530605688602}
   m_Layer: 0
-  m_Name: CaminoSubida02
+  m_Name: CaminoSubida01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4170509105879116
+--- !u!4 &4282064149812772
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1327038396025286}
-  m_LocalRotation: {x: 0, y: 0, z: -0.17364825, w: 0.9848078}
-  m_LocalPosition: {x: -19.8, y: 15.1, z: 46}
-  m_LocalScale: {x: 30, y: 0.2, z: 5}
+  m_GameObject: {fileID: 1037419867494010}
+  m_LocalRotation: {x: -0.14097439, y: -0.69291145, z: 0.14097439, w: 0.69291145}
+  m_LocalPosition: {x: 43.675617, y: -15.479637, z: -56.42764}
+  m_LocalScale: {x: 26, y: 0.2, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20}
---- !u!23 &23187718931923978
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 23}
+--- !u!23 &23933530605688602
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1327038396025286}
+  m_GameObject: {fileID: 1037419867494010}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -55,7 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c8bfd1cfda4aa4a48ad75d920a9948c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,19 +73,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &33944318626340970
+--- !u!33 &33729112046790950
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1327038396025286}
+  m_GameObject: {fileID: 1037419867494010}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65341366298033082
+--- !u!65 &65324918276100658
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1327038396025286}
+  m_GameObject: {fileID: 1037419867494010}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
