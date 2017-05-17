@@ -15,7 +15,7 @@ public class Torreta : MonoBehaviour {
     public KeyCode disparar;
 
 	void Start () {
-        velRot = 80;
+        velRot = 70;
         for(int i = 0; i < balasInstanciadas.Length; i++)
         {
             balasInstanciadas[i] = Instantiate(bala, punta.position, punta.rotation);

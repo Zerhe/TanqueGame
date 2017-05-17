@@ -5,31 +5,54 @@ using UnityEngine;
 public class Tanque : MonoBehaviour {
     private float velRot;
     private float velTanq;
-    private float velTanqInicial;
+    //private float velTanqInicial;
     public Vector3 posInicial;
     public Quaternion rotInicial;
+    private Rigidbody rgb;
     public KeyCode movArriba;
     public KeyCode movAbajo;
     public KeyCode movDerecha;
     public KeyCode movIzquierda;
+    private bool pressForwad;
+    private bool pressBack;
 
-	void Start () {
+    private void Awake()
+    {
+        rgb = GetComponent<Rigidbody>();
+    }
+    void Start () {
         velRot =80;
-        velTanqInicial = 10;
-        velTanq = velTanqInicial;
+        //velTanqInicial = 10;
+        velTanq = 10;
         posInicial = transform.position;
         rotInicial = transform.rotation;
+        pressForwad = false;
+        pressBack = false;
 	}
-	
-	void Update () {
+    void FixedUpdate()
+    {
+        if (pressForwad == true)
+        {
+            rgb.AddRelativeForce(Vector3.forward * velTanq, ForceMode.Impulse);
+        }
+        if (pressBack == true)
+        {
+            rgb.AddRelativeForce(Vector3.back * velTanq, ForceMode.Impulse);
+        }
+    }
+    void Update () {
         if (Input.GetKey(movArriba))
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * velTanq);
+            pressForwad = true;
         }
+        else
+            pressForwad = false;
         if (Input.GetKey(movAbajo))
         {
-            transform.Translate(Vector3.back * Time.deltaTime * velTanq);
+            pressBack = true;
         }
+        else
+            pressBack = false;
         if (Input.GetKey(movDerecha))
         {
             transform.Rotate(Vector3.up * Time.deltaTime * velRot);
@@ -39,7 +62,7 @@ public class Tanque : MonoBehaviour {
             transform.Rotate(Vector3.down * Time.deltaTime * velRot);
         }
     }
-    public float getVelTanq()
+    /*public float getVelTanq()
     {
         return velTanq;
     }
@@ -50,5 +73,5 @@ public class Tanque : MonoBehaviour {
     public float getVelTanqInicial()
     {
         return velTanqInicial;
-    }
+    }*/
 }
