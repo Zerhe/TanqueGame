@@ -10,36 +10,54 @@ public class Mundo : MonoBehaviour {
     public Tanque scriptTanque01;
     public Tanque scriptTanque02;
     private Rigidbody rgbt01;
+    private Rigidbody rgbt02;
+    [SerializeField]
+    private GameObject lluvia;
+    [SerializeField]
+    private Light light;
+    private float timer;
+
+
 
     void Awake () {
         scriptTanque01 = tanque01.GetComponent<Tanque>();
         scriptTanque02 = tanque02.GetComponent<Tanque>();
         rgbt01 = tanque01.GetComponent<Rigidbody>();
-	}
-	
-	void Update () {
-        if (Input.GetKey(resetTanque01))
-        {
-            //ResetTanque(tanque01, scriptTanque01);
-            tanque01.transform.position = scriptTanque01.posInicial;
-            tanque01.transform.rotation = scriptTanque01.rotInicial;
-            tanque01.SetActive(true);
-            rgbt01.velocity = Vector3.zero;
-            rgbt01.angularVelocity = Vector3.zero;
-            //rgbt01.Sleep();
-        }
-        if (Input.GetKey(resetTanque02))
-        {
-            tanque02.transform.position = scriptTanque02.posInicial;
-            tanque02.transform.rotation = scriptTanque02.rotInicial;
-            tanque02.SetActive(true);
-        }
+        rgbt02 = tanque02.GetComponent<Rigidbody>();
+        lluvia.SetActive(false);
+
     }
-    void ResetTanque(GameObject tanque, Tanque script)
+
+    void Update () {
+        timer += Time.deltaTime;
+        print(timer);
+        if (timer > 20 && timer < 39)
+        {
+            CambiarClima(lluvia, true);
+            light.intensity = 0.3f;
+        }
+        else if (timer > 40)
+        {
+            CambiarClima(lluvia, false);
+            light.intensity = 0.7f;
+            timer = 0;
+        }
+        if (Input.GetKey(resetTanque01))
+            ResetTanque(tanque01, scriptTanque01, rgbt01); 
+        if (Input.GetKey(resetTanque02))
+            ResetTanque(tanque02, scriptTanque02, rgbt02);
+    }
+    void ResetTanque(GameObject tanque, Tanque script, Rigidbody rgb)
     {
         tanque.transform.position = script.posInicial;
         tanque.transform.rotation = script.rotInicial;
         tanque.SetActive(true);
-
+        rgb.velocity = Vector3.zero;
+        rgb.angularVelocity = Vector3.zero;
+        //rgbt01.Sleep();
+    }
+    void CambiarClima(GameObject clima,bool actDesact)
+    {
+        clima.SetActive(actDesact);
     }
 }

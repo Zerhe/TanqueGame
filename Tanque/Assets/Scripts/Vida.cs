@@ -7,7 +7,7 @@ public class Vida : MonoBehaviour {
     	
 	void Update ()
     {
-        print(cantVida);
+        
 		if(cantVida <= 0)
         {
             gameObject.SetActive(false);

@@ -15,6 +15,7 @@ public class Tanque : MonoBehaviour {
     public KeyCode movIzquierda;
     private bool pressForwad;
     private bool pressBack;
+    private bool coliPiso;
 
     private void Awake()
     {
@@ -28,17 +29,22 @@ public class Tanque : MonoBehaviour {
         rotInicial = transform.rotation;
         pressForwad = false;
         pressBack = false;
+        coliPiso = false;
 	}
     void FixedUpdate()
     {
-        if (pressForwad == true)
+        if ( coliPiso )
         {
-            rgb.AddRelativeForce(Vector3.forward * velTanq, ForceMode.Impulse);
+            if (pressForwad == true)
+            {
+                rgb.AddRelativeForce(Vector3.forward * velTanq, ForceMode.Impulse);
+            }
+            if (pressBack == true)
+            {
+                rgb.AddRelativeForce(Vector3.back * velTanq, ForceMode.Impulse);
+            }
         }
-        if (pressBack == true)
-        {
-            rgb.AddRelativeForce(Vector3.back * velTanq, ForceMode.Impulse);
-        }
+        rgb.AddForce(Vector3.down * 2, ForceMode.Impulse);
     }
     void Update () {
         if (Input.GetKey(movArriba))
@@ -61,6 +67,14 @@ public class Tanque : MonoBehaviour {
         {
             transform.Rotate(Vector3.down * Time.deltaTime * velRot);
         }
+    }
+    void OnCollisionStay(Collision coll)
+    {
+        coliPiso = true;
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        coliPiso = false;
     }
     /*public float getVelTanq()
     {

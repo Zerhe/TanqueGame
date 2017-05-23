@@ -10,7 +10,7 @@ public class RecuVida : MonoBehaviour {
         timer = 0;
 	}
 	void Update () {
-        print(timer);
+        
 	}
     void OnTriggerStay(Collider coll)
     {
