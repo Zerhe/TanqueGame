@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class RecuVida : MonoBehaviour {
     private Vida vida;
-    private float timer;
+    private AudioSource audio;
 
-	void Start () {
-        timer = 0;
+	void Awake () {
+        audio = GetComponent<AudioSource>();
 	}
 	void Update () {
         
 	}
-    void OnTriggerStay(Collider coll)
+    void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.tag == "Player")
         {
             vida = coll.gameObject.GetComponent<Vida>();
-            timer += Time.deltaTime;
-
-            if (vida.cantVida < 100 && timer > 1)
+            if (vida.cantVida < 100 )
             {
-                vida.cantVida++;
-                timer = 0;
+                audio.Play();
             }
         }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        audio.Stop();
     }
 }

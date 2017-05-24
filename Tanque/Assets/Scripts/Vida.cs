@@ -10,7 +10,7 @@ public class Vida : MonoBehaviour {
     	
 	void Update ()
     {
-        print(cantVida);
+        //print(cantVida);
         barraVida.value = cantVida;
 		if(cantVida <= 0)
         {

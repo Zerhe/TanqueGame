@@ -1463,6 +1463,8 @@ MonoBehaviour:
   scriptTanque02: {fileID: 0}
   lluvia: {fileID: 914490564}
   light: {fileID: 103598999}
+  lluviaSong: {fileID: 8300000, guid: 75c8df42de70f1342b26690544d2f5fa, type: 3}
+  diaSong: {fileID: 8300000, guid: bec8b592d46336649808f9a6028b9183, type: 3}
 --- !u!4 &322024157
 Transform:
   m_ObjectHideFlags: 0
@@ -1485,7 +1487,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bec8b592d46336649808f9a6028b9183, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

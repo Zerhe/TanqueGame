@@ -15,7 +15,14 @@ public class Mundo : MonoBehaviour {
     private GameObject lluvia;
     [SerializeField]
     private Light light;
+    private AudioSource audio;
+    [SerializeField]
+    private AudioClip lluviaSong;
+    [SerializeField]
+    private AudioClip diaSong;
     private float timer;
+    private bool nublado;
+    private bool soleado;
 
 
 
@@ -24,22 +31,26 @@ public class Mundo : MonoBehaviour {
         scriptTanque02 = tanque02.GetComponent<Tanque>();
         rgbt01 = tanque01.GetComponent<Rigidbody>();
         rgbt02 = tanque02.GetComponent<Rigidbody>();
+        audio = GetComponent<AudioSource>();
         lluvia.SetActive(false);
-
     }
 
     void Update () {
-        timer += Time.deltaTime;
-        //print(timer);
-        if (timer > 20 && timer < 39)
+        timer++;
+        print(timer);
+        if (timer == 100 )
         {
             CambiarClima(lluvia, true);
             light.intensity = 0.3f;
+            audio.clip = lluviaSong;
+            audio.Play();
         }
-        else if (timer > 40)
+        else if (timer == 200)
         {
             CambiarClima(lluvia, false);
             light.intensity = 0.7f;
+            audio.clip = diaSong;
+            audio.Play();
             timer = 0;
         }
         if (Input.GetKey(resetTanque01))
