@@ -30,7 +30,7 @@ public class Mundo : MonoBehaviour {
 
     void Update () {
         timer += Time.deltaTime;
-        print(timer);
+        //print(timer);
         if (timer > 20 && timer < 39)
         {
             CambiarClima(lluvia, true);

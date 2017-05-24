@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Vida : MonoBehaviour {
-    public int cantVida;
+    public float cantVida;
     [SerializeField]
     private Slider barraVida;
     	
 	void Update ()
     {
-        //barraVida.value = Mathf.MoveTowards(barraVida.value, cantVida, 0.15f);
+        print(cantVida);
         barraVida.value = cantVida;
 		if(cantVida <= 0)
         {
@@ -18,4 +18,14 @@ public class Vida : MonoBehaviour {
             cantVida = 100;
         }
 	}
+    void OnTriggerStay(Collider coll)
+    {
+        if (coll.gameObject.tag == "RecuVida")
+        {
+            if (cantVida < 100)
+            {
+                cantVida+=3*Time.deltaTime;
+            }
+        }
+    }
 }
